@@ -1,0 +1,20 @@
+{
+    "name": "haritam",
+    "mastertemplate": "haritam",
+    "version": "1stable.0.0",
+    "description": "Haritam - Wate Management System",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/firecodex2github/haritam"
+    },
+    "bugs": {
+        "url": "https://github.com/firecodex2github/haritam/issues",
+        "email": "contact@firecodex.com"
+    },
+    "author": "Tony Puthenveettil <contact@firecodex.com> (https://firecodex.com)",
+    "engines": {
+        "node": ">=10.0.0"
+    },
+    "dependencies": {},
+    "devDependencies": {}
+}

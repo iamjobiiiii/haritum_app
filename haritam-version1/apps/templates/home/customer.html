@@ -1,0 +1,423 @@
+{% extends "layouts/base-fullscreen.html" %}
+
+{% block title %} Agent {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<main>
+
+    {% include 'includes/preloader.html' %}
+
+    <!-- Hero -->
+    <div class="section-header pb-6 bg-primary text-white">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8 text-center">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Hero -->
+
+    <!-- Section -->
+    <div class="section section-md">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-10 col-lg-12">
+                    <!-- Tab Nav -->
+                    <div class="nav-wrapper position-relative mb-2">
+                        <ul class="nav nav-pills nav-fill flex-column flex-md-row" id="tabs-text" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link mb-sm-3 mb-md-0 active" id="tabs-text-1-tab" data-bs-toggle="tab"
+                                   href="#tabs-text-1" role="tab" aria-controls="tabs-text-1" aria-selected="true">Requests</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mb-sm-3 mb-md-0" id="tabs-text-2-tab" data-bs-toggle="tab"
+                                   href="#tabs-text-2" role="tab" aria-controls="tabs-text-2"
+                                   aria-selected="false">Profile</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- End of Tab Nav -->
+                    <!-- Tab Content -->
+                    <div class="card border-0">
+                        <div class="card-body p-0">
+                            <div class="tab-content" id="tabcontent1">
+                                <div class="tab-pane fade show active" id="tabs-text-1" role="tabpanel"
+                                     aria-labelledby="tabs-text-1-tab">
+                                    <div class="container mt-5">
+                                        <div class="accordion" id="accordionExample">
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="headingOne">
+                                                    <button class="accordion-button" type="button"
+                                                            data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                                            aria-expanded="true" aria-controls="collapseOne">
+                                                        Create
+                                                    </button>
+                                                </h2>
+                                                <div id="collapseOne" class="accordion-collapse collapse"
+                                                     aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                                    <div class="accordion-body">
+                                                        <div class="container mt-5">
+                                                            <form>
+                                                                <div class="card mb-3">
+                                                                    <div class="card-header">
+                                                                        Garbage Details
+                                                                    </div>
+                                                                    <div class="card-body">
+                                                                        <div class="mb-3">
+                                                                            <label for="categoryType"
+                                                                                   class="form-label">Category
+                                                                                Type</label>
+                                                                            <select class="form-select"
+                                                                                    id="categoryType">
+                                                                                <option selected>Choose type...</option>
+                                                                                <option value="Organic">Organic</option>
+                                                                                <option value="Recyclable">Recyclable
+                                                                                </option>
+                                                                                <option value="Hazardous">Hazardous
+                                                                                </option>
+                                                                                <option value="General">General</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="mb-3">
+                                                                            <label for="categoryName"
+                                                                                   class="form-label">
+                                                                                Name</label>
+                                                                            <input type="text" class="form-control"
+                                                                                   id="categoryName"
+                                                                                   placeholder="Enter category name">
+                                                                        </div>
+                                                                        <div class="mb-3">
+                                                                            <label for="garbageWeight"
+                                                                                   class="form-label">
+                                                                                Weight</label>
+                                                                            <input type="text" class="form-control"
+                                                                                   id="garbageWeight"
+                                                                                   placeholder="Enter garbage weight">
+                                                                        </div>
+                                                                        <div class="mb-3">
+                                                                            <label for="categoryDescription"
+                                                                                   class="form-label">Description</label>
+                                                                            <textarea class="form-control"
+                                                                                      id="categoryDescription" rows="3"
+                                                                                      placeholder="Enter category description"></textarea>
+                                                                        </div>
+                                                                        <div class="row mb-4 mb-lg-5">
+                                                                            <div class="col-12 col-md-4">
+                                                                                <!-- Form -->
+                                                                                <div class="form-group">
+                                                                                    <label class="h6"
+                                                                                           for="exampleInputDate1">Appointment
+                                                                                        date</label>
+                                                                                    <div class="input-group mb-4">
+                                                                                    <span class="input-group-text"
+                                                                                          id="basic-addonDate1"><span
+                                                                                            class="fas far fa-calendar-alt"></span></span>
+                                                                                        <input class="form-control"
+                                                                                               data-datepicker=""
+                                                                                               id="exampleInputDate1"
+                                                                                               placeholder="Select date"
+                                                                                               type="text"
+                                                                                               aria-label="Date with icon left">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <!-- End of Form -->
+                                                                            </div>
+                                                                            <div class="col-12 col-md-8">
+                                                                                <!-- Form -->
+                                                                                <div class="row align-items-center">
+                                                                                    <div class="col">
+                                                                                        <label class="h6"
+                                                                                               for="exampleInputDate2">From</label>
+                                                                                        <div class="form-group">
+                                                                                            <div class="input-group input-group-border">
+                                                                                            <span class="input-group-text"
+                                                                                                  id="basic-addonDate2"><span
+                                                                                                    class="fas far fa-calendar-alt"></span></span>
+                                                                                                <input class="form-control"
+                                                                                                       data-datepicker=""
+                                                                                                       id="exampleInputDate2"
+                                                                                                       placeholder="Start date"
+                                                                                                       type="text">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col">
+                                                                                        <div class="form-group">
+                                                                                            <label class="h6"
+                                                                                                   for="exampleInputDate3">To</label>
+                                                                                            <div class="input-group input-group-border">
+                                                                                            <span class="input-group-text"
+                                                                                                  id="basic-addonDate3"><span
+                                                                                                    class="fas far fa-calendar-alt"></span></span>
+                                                                                                <input class="form-control"
+                                                                                                       data-datepicker=""
+                                                                                                       id="exampleInputDate3"
+                                                                                                       placeholder="End date"
+                                                                                                       type="text">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <!-- End of Form -->
+                                                                            </div>
+                                                                        </div>
+                                                                        <!--                                                                        <div class="mb-3">-->
+                                                                        <!--                                                                            <label for="pickupFrequency"-->
+                                                                        <!--                                                                                   class="form-label">Pickup-->
+                                                                        <!--                                                                                Frequency</label>-->
+                                                                        <!--                                                                            <input type="text" class="form-control"-->
+                                                                        <!--                                                                                   id="pickupFrequency"-->
+                                                                        <!--                                                                                   placeholder="Enter pickup frequency">-->
+                                                                        <!--                                                                        </div>-->
+                                                                        <!--                                                                        <div class="mb-3">-->
+                                                                        <!--                                                                            <label for="disposalMethod"-->
+                                                                        <!--                                                                                   class="form-label">Disposal-->
+                                                                        <!--                                                                                Method</label>-->
+                                                                        <!--                                                                            <input type="text" class="form-control"-->
+                                                                        <!--                                                                                   id="disposalMethod"-->
+                                                                        <!--                                                                                   placeholder="Enter disposal method">-->
+                                                                        <!--                                                                        </div>-->
+                                                                    </div>
+                                                                </div>
+
+                                                                <button type="submit" class="btn btn-primary">Create
+                                                                </button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <!-- First table -->
+                                            <h2 class="accordion-header" id="headingTwo">
+                                                <button class="accordion-button collapsed" type="button"
+                                                        data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                                        aria-expanded="false" aria-controls="collapseTwo">
+                                                    Upcoming
+                                                </button>
+                                            </h2>
+                                            <div id="collapseTwo" class="accordion-collapse collapse"
+                                                 aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    <table class="table table-hover">
+                                                        <thead class="thead-dark">
+                                                        <tr>
+                                                            <th scope="col">#</th>
+                                                            <th scope="col">Type</th>
+                                                            <th scope="col">Name</th>
+                                                            <th scope="col">Weight</th>
+                                                            <th scope="col">Agent</th>
+                                                            <th scope="col">Status</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr>
+                                                            <th scope="row">1</th>
+                                                            <td>Degradable waste</td>
+                                                            <td>Food waste</td>
+                                                            <td>10 Kg</td>
+                                                            <td>Arun</td>
+                                                            <td>Accepted</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">2</th>
+                                                            <td>Degradable waste</td>
+                                                            <td>Vegetable waste</td>
+                                                            <td>5 Kg</td>
+                                                            <td>Delin</td>
+                                                            <td>Accepted</td>
+                                                        </tr>
+                                                        <!-- Add more rows as needed -->
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingThree">
+                                                <button class="accordion-button collapsed" type="button"
+                                                        data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                                        aria-expanded="false" aria-controls="collapseThree">
+                                                    Completed
+                                                </button>
+                                            </h2>
+                                            <div id="collapseThree" class="accordion-collapse collapse"
+                                                 aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    <table class="table table-hover">
+                                                        <thead class="thead-dark">
+                                                        <tr>
+                                                            <th scope="row">1</th>
+                                                            <td>Degradable waste</td>
+                                                            <td>Food waste</td>
+                                                            <td>10 Kg</td>
+                                                            <td>Arun</td>
+                                                            <td>Completed</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">2</th>
+                                                            <td>Degradable waste</td>
+                                                            <td>Vegetable waste</td>
+                                                            <td>5 Kg</td>
+                                                            <td>Delin</td>
+                                                            <td>Completed</td>
+                                                        </tr>
+                                                        <!-- Add more rows as needed -->
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="tabs-text-2" role="tabpanel"
+                                     aria-labelledby="tabs-text-2-tab">
+                                    <div class="container mt-5">
+                                        <form>
+                                            <div class="card mb-3">
+                                                <div class="row g-0">
+                                                    <div class="col-md-4">
+                                                        <img src="https://via.placeholder.com/300"
+                                                             class="img-fluid rounded-start" alt="Customer Photo">
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="card-body">
+                                                            <div class="mb-3">
+                                                                <label for="customerName" class="form-label">Full
+                                                                    Name</label>
+                                                                <input type="text" class="form-control"
+                                                                       id="customerName" placeholder="Enter full name"
+                                                                       value="Jane Smith">
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label for="customerID" class="form-label">Customer
+                                                                    ID</label>
+                                                                <input type="text" class="form-control" id="customerID"
+                                                                       placeholder="Enter customer ID"
+                                                                       value="CUST12345">
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label for="membership"
+                                                                       class="form-label">Membership</label>
+                                                                <select class="form-select" id="membership">
+                                                                    <option selected>Premium</option>
+                                                                    <option>Basic</option>
+                                                                    <option>Standard</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="card mb-3">
+                                                <div class="card-header">
+                                                    Personal Information
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="mb-3">
+                                                        <label for="dob" class="form-label">Date of Birth</label>
+                                                        <input type="date" class="form-control" id="dob"
+                                                               value="1990-01-01">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="gender" class="form-label">Gender</label>
+                                                        <select class="form-select" id="gender">
+                                                            <option selected>Female</option>
+                                                            <option>Male</option>
+                                                            <option>Other</option>
+                                                            <option>Prefer not to say</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="card mb-3">
+                                                <div class="card-header">
+                                                    Contact Information
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="mb-3">
+                                                        <label for="email" class="form-label">Email</label>
+                                                        <input type="email" class="form-control" id="email"
+                                                               placeholder="Enter email" value="jane.smith@example.com">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="phone" class="form-label">Phone Number</label>
+                                                        <input type="tel" class="form-control" id="phone"
+                                                               placeholder="Enter phone number" value="123-456-7890">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="address" class="form-label">Address</label>
+                                                        <input type="text" class="form-control" id="address"
+                                                               placeholder="Enter address"
+                                                               value="123 Maple Street, Anytown, USA">
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6 mb-3">
+                                                            <label for="city" class="form-label">City</label>
+                                                            <input type="text" class="form-control" id="city"
+                                                                   placeholder="Enter city" value="Anytown">
+                                                        </div>
+                                                        <div class="col-md-6 mb-3">
+                                                            <label for="state" class="form-label">State</label>
+                                                            <input type="text" class="form-control" id="state"
+                                                                   placeholder="Enter state" value="CA">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6 mb-3">
+                                                            <label for="zip" class="form-label">Zip Code</label>
+                                                            <input type="text" class="form-control" id="zip"
+                                                                   placeholder="Enter zip code" value="12345">
+                                                        </div>
+                                                        <div class="col-md-6 mb-3">
+                                                            <label for="country" class="form-label">Country</label>
+                                                            <input type="text" class="form-control" id="country"
+                                                                   placeholder="Enter country" value="USA">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="card mb-3">
+                                                <div class="card-header">
+                                                    Description/Notes
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="mb-3">
+                                                        <label for="description"
+                                                               class="form-label">Description/Notes</label>
+                                                        <textarea class="form-control" id="description" rows="3"
+                                                                  placeholder="Enter description or notes">Jane Smith is a valued customer who has been with us since January 2021. She has a premium membership and frequently uses our services. Jane is known for her excellent feedback and has referred several new customers to us.</textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of Tab Content -->
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- End of Section -->
+
+</main>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

@@ -1,0 +1,605 @@
+{% extends "layouts/base-fullscreen.html" %}
+
+{% block title %} Admin {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<main>
+
+    {% include 'includes/preloader.html' %}
+
+    <!-- Hero -->
+    <div class="section-header pb-1 bg-primary text-white">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8 text-center">
+                    <!--                    <h1 class="display-3 mb-4">Admin</h1>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Hero -->
+    <!-- Section -->
+    <div class="section section-md">
+        <div class="container">
+            <div class="row ">
+                <div class="col-12 col-md-10 col-lg-12">
+                    <!-- Tab Nav -->
+                    <div class="nav-wrapper position-relative mb-6">
+                        <ul class="nav nav-pills nav-fill flex-column flex-md-row" id="tabs-text" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link mb-sm-3 mb-md-0 active" id="tabs-text-1-tab" data-bs-toggle="tab"
+                                   href="#tabs-text-1" role="tab" aria-controls="tabs-text-1" aria-selected="true">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mb-sm-3 mb-md-0" id="tabs-text-2-tab" data-bs-toggle="tab"
+                                   href="#tabs-text-2" role="tab" aria-controls="tabs-text-2"
+                                   aria-selected="false">Manage Garbage</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mb-sm-3 mb-md-0" id="tabs-text-3-tab" data-bs-toggle="tab"
+                                   href="#tabs-text-3" role="tab" aria-controls="tabs-text-3"
+                                   aria-selected="false">Manage Agent</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mb-sm-3 mb-md-0" id="tabs-text-4-tab" data-bs-toggle="tab"
+                                   href="#tabs-text-4" role="tab" aria-controls="tabs-text-4"
+                                   aria-selected="false">Manage Request</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- End of Tab Nav -->
+                    <!-- Tab Content -->
+                    <!-- Section -->
+                    <div class="card border-0">
+                        <div class="card-body p-0">
+                            <div class="tab-content" id="tabcontent1">
+                                <!-- Tab Dashboard Section  -->
+                                <div class="tab-pane fade show active" id="tabs-text-1" role="tabpanel"
+                                     aria-labelledby="tabs-text-1-tab">
+                                    <div class="container mt-5">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="card text-center">
+                                                    <div class="card-body">
+                                                        <i class="fas fa-user card-icon"></i>
+                                                        <h5 class="card-title mt-3">Total request</h5>
+                                                        <p class="card-text">150</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="card text-center">
+                                                    <div class="card-body">
+                                                        <i class="fas fa-chart-line card-icon"></i>
+                                                        <h5 class="card-title mt-3">Assigned request</h5>
+                                                        <p class="card-text">230</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="card text-center">
+                                                    <div class="card-body">
+                                                        <i class="fas fa-shopping-cart card-icon"></i>
+                                                        <h5 class="card-title mt-3">Completed request</h5>
+                                                        <p class="card-text">85</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="card text-center">
+                                                    <div class="card-body">
+                                                        <i class="fas fa-dollar-sign card-icon"></i>
+                                                        <h5 class="card-title mt-3">Unassigned request</h5>
+                                                        <p class="card-text">100</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Garbage Section -->
+                                <div class="tab-pane fade" id="tabs-text-2" role="tabpanel"
+                                     aria-labelledby="tabs-text-2-tab">
+                                    <h2>Garbage List</h2>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#modal-default-1">Add Garbage
+                                    </button>
+                                    <div class="modal fade" id="modal-default-1" tabindex="-1" role="dialog"
+                                         aria-labelledby="modal-default"
+                                         aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h2 class="h6 modal-title">Garbage Creation Form</h2>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="container mt-5">
+                                                        <form>
+                                                            <div class="card mb-3">
+                                                                <div class="card-header">
+                                                                    Garbage Details
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <div class="mb-3">
+                                                                        <label for="categoryName" class="form-label">Category
+                                                                            Name</label>
+                                                                        <input type="text" class="form-control"
+                                                                               id="categoryName"
+                                                                               placeholder="Enter category name">
+                                                                    </div>
+                                                                    <div class="mb-3">
+                                                                        <label for="categoryDescription"
+                                                                               class="form-label">Description</label>
+                                                                        <textarea class="form-control"
+                                                                                  id="categoryDescription" rows="3"
+                                                                                  placeholder="Enter category description"></textarea>
+                                                                    </div>
+                                                                    <div class="mb-3">
+                                                                        <label for="categoryType" class="form-label">Category
+                                                                            Type</label>
+                                                                        <select class="form-select" id="categoryType">
+                                                                            <option selected>Choose type...</option>
+                                                                            <option value="Organic">Organic</option>
+                                                                            <option value="Recyclable">Recyclable
+                                                                            </option>
+                                                                            <option value="Hazardous">Hazardous</option>
+                                                                            <option value="General">General</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="mb-3">
+                                                                        <label for="pickupFrequency" class="form-label">Pickup
+                                                                            Frequency</label>
+                                                                        <input type="text" class="form-control"
+                                                                               id="pickupFrequency"
+                                                                               placeholder="Enter pickup frequency">
+                                                                    </div>
+                                                                    <div class="mb-3">
+                                                                        <label for="disposalMethod" class="form-label">Disposal
+                                                                            Method</label>
+                                                                        <input type="text" class="form-control"
+                                                                               id="disposalMethod"
+                                                                               placeholder="Enter disposal method">
+                                                                    </div>
+                                                                    <div class="mb-3">
+<!--                                                                        <label for="disabled" class="form-label">Disabled</label>-->
+                                                                        <input class="form-check-input" type="checkbox"
+                                                                               value="" id="disabled">
+                                                                        <label class="form-check-label" for="disabled">
+                                                                            Disabled
+                                                                        </label>
+<!--                                                                        <input type="text" class="form-control"-->
+<!--                                                                               id="disabled"-->
+<!--                                                                               placeholder="Enter disposal method">-->
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <button type="submit" class="btn btn-primary">Save
+                                                                Category
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="container mt-5">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <table class="table table-hover">
+                                                    <thead class="thead-dark">
+                                                    <tr>
+                                                        <th scope="col">#</th>
+                                                        <th scope="col">Name</th>
+                                                        <th scope="col">Type</th>
+                                                        <th scope="col">Frequency</th>
+                                                        <th scope="col">Disabled</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>John</td>
+                                                        <td>Doe</td>
+                                                        <td>john.doe@example.com</td>
+                                                        <td>123-456-7890</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">2</th>
+                                                        <td>Jane</td>
+                                                        <td>Smith</td>
+                                                        <td>jane.smith@example.com</td>
+                                                        <td>987-654-3210</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">3</th>
+                                                        <td>Emily</td>
+                                                        <td>Jones</td>
+                                                        <td>emily.jones@example.com</td>
+                                                        <td>456-789-0123</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">4</th>
+                                                        <td>Michael</td>
+                                                        <td>Brown</td>
+                                                        <td>michael.brown@example.com</td>
+                                                        <td>321-654-9870</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">5</th>
+                                                        <td>Linda</td>
+                                                        <td>Johnson</td>
+                                                        <td>linda.johnson@example.com</td>
+                                                        <td>654-321-0987</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Agent Section -->
+                                <div class="tab-pane fade" id="tabs-text-3" role="tabpanel"
+                                     aria-labelledby="tabs-text-3-tab">
+                                    <h2>Agent List</h2>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#modal-default">Add Agent
+                                    </button>
+                                    <!-- Modal Content -->
+                                    <div class="modal fade" id="modal-default" tabindex="-1" role="dialog"
+                                         aria-labelledby="modal-default"
+                                         aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h2 class="h6 modal-title">Agent Creation Form</h2>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="container mt-5">
+                                                        <form>
+                                                            <div class="mb-3">
+                                                                <label for="agentFirstName" class="form-label">First
+                                                                    Name</label>
+                                                                <input type="text" class="form-control"
+                                                                       id="agentFirstName"
+                                                                       placeholder="Enter first name">
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label for="agentLastName" class="form-label">Last
+                                                                    Name</label>
+                                                                <input type="text" class="form-control"
+                                                                       id="agentLastName" placeholder="Enter last name">
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label for="agentEmail" class="form-label">Email</label>
+                                                                <input type="email" class="form-control" id="agentEmail"
+                                                                       placeholder="Enter email">
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label for="agentPhone" class="form-label">Phone
+                                                                    Number</label>
+                                                                <input type="tel" class="form-control" id="agentPhone"
+                                                                       placeholder="Enter phone number">
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label for="agentAddress"
+                                                                       class="form-label">Address</label>
+                                                                <input type="text" class="form-control"
+                                                                       id="agentAddress" placeholder="Enter address">
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-6 mb-3">
+                                                                    <label for="agentCity"
+                                                                           class="form-label">City</label>
+                                                                    <input type="text" class="form-control"
+                                                                           id="agentCity" placeholder="Enter city">
+                                                                </div>
+                                                                <div class="col-md-6 mb-3">
+                                                                    <label for="agentState"
+                                                                           class="form-label">State</label>
+                                                                    <input type="text" class="form-control"
+                                                                           id="agentState" placeholder="Enter state">
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-6 mb-3">
+                                                                    <label for="agentZip" class="form-label">Zip
+                                                                        Code</label>
+                                                                    <input type="text" class="form-control"
+                                                                           id="agentZip" placeholder="Enter zip code">
+                                                                </div>
+                                                                <div class="col-md-6 mb-3">
+                                                                    <label for="agentCountry"
+                                                                           class="form-label">Country</label>
+                                                                    <input type="text" class="form-control"
+                                                                           id="agentCountry"
+                                                                           placeholder="Enter country">
+                                                                </div>
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label for="agentAgency"
+                                                                       class="form-label">Agency</label>
+                                                                <input type="text" class="form-control" id="agentAgency"
+                                                                       placeholder="Enter agency name">
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label for="agentLicense" class="form-label">License
+                                                                    Number</label>
+                                                                <input type="text" class="form-control"
+                                                                       id="agentLicense"
+                                                                       placeholder="Enter license number">
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label for="agentSpecialty"
+                                                                       class="form-label">Specialty</label>
+                                                                <input type="text" class="form-control"
+                                                                       id="agentSpecialty"
+                                                                       placeholder="Enter specialty">
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label for="agentDescription" class="form-label">Description</label>
+                                                                <textarea class="form-control" id="agentDescription"
+                                                                          rows="3"
+                                                                          placeholder="Enter description"></textarea>
+                                                            </div>
+                                                            <button type="submit" class="btn btn-primary">Create Agent
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                <!--                                    <div class="modal-footer">-->
+                                                <!--                                        <button type="button" class="btn btn-secondary">I accept</button>-->
+                                                <!--                                        <button type="button" class="btn btn-link ms-auto"-->
+                                                <!--                                            data-bs-dismiss="modal">Save</button>-->
+                                                <!--                                    </div>-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="container mt-5">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <table class="table table-hover">
+                                                    <thead class="thead-dark">
+                                                    <tr>
+                                                        <th scope="col">#</th>
+                                                        <th scope="col">First Name</th>
+                                                        <th scope="col">Last Name</th>
+                                                        <th scope="col">Email</th>
+                                                        <th scope="col">Phone</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>John</td>
+                                                        <td>Doe</td>
+                                                        <td>john.doe@example.com</td>
+                                                        <td>123-456-7890</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">2</th>
+                                                        <td>Jane</td>
+                                                        <td>Smith</td>
+                                                        <td>jane.smith@example.com</td>
+                                                        <td>987-654-3210</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">3</th>
+                                                        <td>Emily</td>
+                                                        <td>Jones</td>
+                                                        <td>emily.jones@example.com</td>
+                                                        <td>456-789-0123</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">4</th>
+                                                        <td>Michael</td>
+                                                        <td>Brown</td>
+                                                        <td>michael.brown@example.com</td>
+                                                        <td>321-654-9870</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">5</th>
+                                                        <td>Linda</td>
+                                                        <td>Johnson</td>
+                                                        <td>linda.johnson@example.com</td>
+                                                        <td>654-321-0987</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="tabs-text-4" role="tabpanel"
+                                     aria-labelledby="tabs-text-4-tab">
+                                    <div class="container mt-5">
+                                        <div class="accordion" id="accordionExample">
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="headingOne">
+                                                    <button class="accordion-button" type="button"
+                                                            data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                                            aria-expanded="true" aria-controls="collapseOne">
+                                                        Unassigned
+                                                    </button>
+                                                </h2>
+                                                <div id="collapseOne" class="accordion-collapse collapse show"
+                                                     aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                                    <div class="accordion-body">
+                                                        <table class="table table-hover">
+                                                            <thead class="thead-dark">
+                                                            <tr>
+                                                                <th scope="col">#</th>
+                                                                <th scope="col">First Name</th>
+                                                                <th scope="col">Last Name</th>
+                                                                <th scope="col">Email</th>
+                                                                <th scope="col">Phone</th>
+                                                                <th scope="col">Agent</th>
+                                                                <th scope="col">Action</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <tr>
+                                                                <th scope="row">1</th>
+                                                                <td>John</td>
+                                                                <td>Doe</td>
+                                                                <td>john.doe@example.com</td>
+                                                                <td>123-456-7890</td>
+                                                                <td>
+                                                                    <select class="form-select">
+                                                                        <option selected>Select the agent</option>
+                                                                        <option value="1">Arun</option>
+                                                                        <option value="2">Delin</option>
+                                                                        <option value="3">Krish</option>
+                                                                    </select>
+                                                                </td>
+                                                                <td>
+                                                                    <button class="btn btn-primary">Action</button>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th scope="row">2</th>
+                                                                <td>John</td>
+                                                                <td>Doe</td>
+                                                                <td>john.doe@example.com</td>
+                                                                <td>123-456-7890</td>
+                                                                <td>
+                                                                    <select class="form-select">
+                                                                        <option selected>Select the agent</option>
+                                                                        <option value="1">Arun</option>
+                                                                        <option value="2">Delin</option>
+                                                                        <option value="3">Krish</option>
+                                                                    </select>
+                                                                </td>
+                                                                <td>
+                                                                    <button class="btn btn-primary">Action</button>
+                                                                </td>
+                                                            </tr>
+                                                            <!-- Add more rows as needed -->
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="headingTwo">
+                                                    <button class="accordion-button collapsed" type="button"
+                                                            data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                                            aria-expanded="false" aria-controls="collapseTwo">
+                                                        Upcoming
+                                                    </button>
+                                                </h2>
+                                                <div id="collapseTwo" class="accordion-collapse collapse"
+                                                     aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                                    <div class="accordion-body">
+                                                        <table class="table table-hover">
+                                                            <thead class="thead-dark">
+                                                            <tr>
+                                                                <th scope="col">#</th>
+                                                                <th scope="col">First Name</th>
+                                                                <th scope="col">Last Name</th>
+                                                                <th scope="col">Email</th>
+                                                                <th scope="col">Phone</th>
+                                                                <th scope="col">Agent</th>
+                                                                <th scope="col">Status</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                             <tr>
+                                                                <th scope="row">1</th>
+                                                                <td>John</td>
+                                                                <td>Doe</td>
+                                                                <td>john.doe@example.com</td>
+                                                                <td>123-456-7890</td>
+                                                                 <td>Arun</td>
+                                                                 <td>Yet to start</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th scope="row">2</th>
+                                                                <td>John</td>
+                                                                <td>Doe</td>
+                                                                <td>john.doe@example.com</td>
+                                                                <td>123-456-7890</td>
+                                                                 <td>Delin</td>
+                                                                <td>Yet to start</td>
+                                                            </tr>
+                                                            <!-- Add more rows as needed -->
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="headingThree">
+                                                    <button class="accordion-button collapsed" type="button"
+                                                            data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                                            aria-expanded="false" aria-controls="collapseThree">
+                                                        Completed
+                                                    </button>
+                                                </h2>
+                                                <div id="collapseThree" class="accordion-collapse collapse"
+                                                     aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                                    <div class="accordion-body">
+                                                        <table class="table table-hover">
+                                                            <thead class="thead-dark">
+                                                            <tr>
+                                                                <th scope="col">#</th>
+                                                                <th scope="col">First Name</th>
+                                                                <th scope="col">Last Name</th>
+                                                                <th scope="col">Email</th>
+                                                                <th scope="col">Phone</th>
+                                                                <th scope="col">Agent</th>
+                                                                <th scope="col">Status</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                             <tr>
+                                                                <th scope="row">1</th>
+                                                                <td>John</td>
+                                                                <td>Doe</td>
+                                                                <td>john.doe@example.com</td>
+                                                                <td>123-456-7890</td>
+                                                                 <td>Arun</td>
+                                                                <td>Completed</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th scope="row">2</th>
+                                                                <td>John</td>
+                                                                <td>Doe</td>
+                                                                <td>john.doe@example.com</td>
+                                                                <td>123-456-7890</td>
+                                                                <td>Arun</td>
+                                                                <td>Completed</td>
+                                                            </tr>
+                                                            <!-- Add more rows as needed -->
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of Tab Content -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Section -->
+
+</main>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
